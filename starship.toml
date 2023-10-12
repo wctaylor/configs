@@ -1,0 +1,49 @@
+format = """
+($git_branch\n)\
+($python\n)\
+($rust\n)\
+($conda\n)\
+$directory\n\
+$hostname\n\
+[:shell ](bold bright-green)
+"""
+
+add_newline = true
+
+[character]
+disabled = true
+
+[conda]
+symbol = ''
+style = 'bold green'
+format = '[:conda $symbol$environment]($style)'
+ignore_base = false
+
+[directory]
+style = 'bold cyan'
+truncation_length = 0
+truncate_to_repo = false
+format = '[:dir $path]($style)'
+
+[git_branch]
+symbol = ''
+style = 'bold purple'
+format = '[:git $symbol$branch(:$remote_branch)]($style)'
+
+[hostname]
+ssh_only = false
+ssh_symbol = ''
+trim_at = '.'
+style = 'bold dimmed green'
+format = '[:hostname ${hostname}]($style)'
+
+[python]
+symbol = ''
+style = 'bold yellow'
+format = '[:python ${symbol}(${version})]($style)'
+
+[rust]
+symbol = ''
+style = 'bold red'
+version_format = 'v${raw}'
+format = '[:rust ${symbol}(${version})]($style)'
